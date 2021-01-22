@@ -1,39 +1,31 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _targets;
-    private int _targetsNumber;
-    public UnityEvent AllTargetsAreDead;
+    [SerializeField] private List<GameObject> _targets;
+    public event UnityAction AllTargetsAreDead;
+
+    private void Update()
+    {
+        HuntOnTargets();
+    }
 
     private void HuntOnTargets()
     {
-        foreach (var target in _targets)
+        for (int i = 0; i < _targets.Count; i++)
         {
-            if (target == null)
+            if (Vector3.Distance(transform.position, _targets[i].transform.position) < 0.2f)
             {
-                continue;
-            }
-            if (Vector3.Distance(transform.position, target.transform.position) < 0.2f)
-            {
-                Destroy(target);
-                _targetsNumber--;
-                if (_targetsNumber <= 0)
+                Destroy(_targets[i]);
+                _targets.Remove(_targets[i]);
+
+                if (_targets.Count == 0)
                 {
                     AllTargetsAreDead?.Invoke();
                 }
             }
         }
-    }
-
-    private void Start()
-    {
-        _targetsNumber = _targets.Length;
-    }   
-
-    private void Update()
-    {
-        HuntOnTargets();
     }
 }

@@ -1,31 +1,45 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(HuntTimer))]
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 3;
+    [SerializeField] private HuntTimer _huntTimer;
 
-    public void OnTimeIsOver()
+    private void OnEnable()
     {
-        _speed /= 2;
+        _huntTimer.HuntTimeIsOver += OnHuntTimeIsOver;
     }
 
     void Update()
-    {       
+    {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.up * _speed * Time.deltaTime);
-        }            
+            Move(Vector2.up);
+        }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.down * _speed * Time.deltaTime);
-        }            
+            Move(Vector2.down);
+        }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * _speed * Time.deltaTime);
-        }           
+            Move(Vector2.left);
+        }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * _speed * Time.deltaTime);
-        }            
+            Move(Vector2.right);
+        }
+    }
+
+    public void Move(Vector3 direction)
+    {
+        transform.Translate(direction * _speed * Time.deltaTime);
+    }
+
+    public void OnHuntTimeIsOver()
+    {
+        _huntTimer.HuntTimeIsOver -= OnHuntTimeIsOver;
+        _speed /= 2;
     }
 }

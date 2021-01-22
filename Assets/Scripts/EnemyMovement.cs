@@ -3,19 +3,24 @@
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 2;
-    private Vector3 _movePoint;        
+    private Vector3 _movePoint;
 
-    void Start()
+    private void Start()
     {
-        _movePoint = Random.insideUnitCircle * 4;
+        SetMovePoint();
     }
-    
-    void Update()
+
+    private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _movePoint, _speed * Time.deltaTime);
         if (transform.position == _movePoint)
         {
-            _movePoint = Random.insideUnitCircle * 4;
-        }            
+            SetMovePoint();
+        }
+    }
+
+    private void SetMovePoint()
+    {
+        _movePoint = Random.insideUnitCircle * 4;
     }
 }
