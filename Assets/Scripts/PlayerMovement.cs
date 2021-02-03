@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        _huntTimer.HuntTimeIsOver += OnHuntTimeIsOver;
+        _huntTimer.HuntTimeOver += OnHuntTimeOver;
     }
 
     void Update()
@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(direction * _speed * Time.deltaTime);
     }
 
-    public void OnHuntTimeIsOver()
+    public void OnHuntTimeOver()
     {
-        _huntTimer.HuntTimeIsOver -= OnHuntTimeIsOver;
-        _speed /= 2;
+        _huntTimer.HuntTimeOver -= OnHuntTimeOver;
+        //_speed /= 2;
     }
 }

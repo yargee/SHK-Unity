@@ -3,19 +3,19 @@
 public class WinScreen : MonoBehaviour
 {
     [SerializeField] private GameObject _winScreen;
-    [SerializeField] private Player _player;
+    [SerializeField] private Hunt _hunt;
 
     private void OnEnable()
     {
-        _player.AllTargetsAreDead += OnAllEnemysDead;
+        _hunt.AllTargetsDead += OnAllTargetsDead;
     }
 
     private void OnDisable()
     {
-        _player.AllTargetsAreDead -= OnAllEnemysDead;
+        _hunt.AllTargetsDead -= OnAllTargetsDead;
     }
 
-    public void OnAllEnemysDead()
+    public void OnAllTargetsDead()
     {
         _winScreen.SetActive(true);
         Time.timeScale = 0;
