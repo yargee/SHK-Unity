@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class NPCMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 2;
 
@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
         FindNewMovePoint();
     }
 
-    private void Update()
+    public void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, _movePoint, _speed * Time.deltaTime);
         if (transform.position == _movePoint)

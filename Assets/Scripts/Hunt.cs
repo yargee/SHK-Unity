@@ -5,10 +5,12 @@ using UnityEngine.Events;
 
 public class Hunt : MonoBehaviour
 {
-    [SerializeField] private List<Enemy> _targets;
+    [SerializeField] private List<NPC> _targets;
+    [SerializeField] private float _time;
 
     public event UnityAction AllTargetsDead;
-    public event UnityAction<Enemy> CollisionOccured;
+    public event UnityAction<NPC> CollisionOccured;
+    public event UnityAction HuntTimeOver;
 
     private void OnEnable()
     {
@@ -18,6 +20,16 @@ public class Hunt : MonoBehaviour
     private void OnDisable()
     {
         CollisionOccured -= OnCollisionOccured;
+    }
+
+    private void Update()
+    {
+        _time -= Time.deltaTime;
+
+        if (_time < 0 && _time > -1)
+        {
+            HuntTimeOver?.Invoke();
+        }
     }
 
     public void CheckTargetsPosition()
@@ -36,8 +48,13 @@ public class Hunt : MonoBehaviour
         }
     }
 
-    private void OnCollisionOccured(Enemy enemy)
+    public void ResetTime()
     {
-        _targets.Remove(enemy);
+        _time = 3;
+    }
+
+    private void OnCollisionOccured(NPC npc)
+    {
+        _targets.Remove(npc);
     }
 }
