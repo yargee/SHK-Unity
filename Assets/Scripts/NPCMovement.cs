@@ -4,6 +4,7 @@ public class NPCMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 2;
 
+    private float radius = 4;
     private Vector3 _movePoint;
 
     private void Start()
@@ -22,6 +23,6 @@ public class NPCMovement : MonoBehaviour
 
     private void FindNewMovePoint()
     {
-        _movePoint = Random.insideUnitCircle * 4;
+        _movePoint = Random.insideUnitCircle * radius;
     }
 }
