@@ -20,8 +20,7 @@ public class BoostReciever : MonoBehaviour
     {
         var value = booster.BoostValue;
         var time = booster.BoostTime;
-
-        _mover.ChangeSpeed(value);
+        
         StartCoroutine(Boost(value, time));
         _boosters.Remove(booster);
         booster.Boosting -= OnBoosting;
@@ -29,6 +28,7 @@ public class BoostReciever : MonoBehaviour
 
     public IEnumerator Boost(float value, float time)
     {
+        _mover.ChangeSpeed(value);
         yield return new WaitForSeconds(time);
         _mover.ChangeSpeed(1 / value);
     }
