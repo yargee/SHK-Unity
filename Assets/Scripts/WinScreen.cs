@@ -7,15 +7,15 @@ public class WinScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        _counter.AllNpcDead += OnAllTargetsDead;
+        _counter.AllNpcDead += OnAllNpcDead;
     }
 
     private void OnDisable()
     {
-        _counter.AllNpcDead -= OnAllTargetsDead;
+        _counter.AllNpcDead -= OnAllNpcDead;
     }
 
-    public void OnAllTargetsDead()
+    public void OnAllNpcDead()
     {
         _winScreen.SetActive(true);
         Time.timeScale = 0;
