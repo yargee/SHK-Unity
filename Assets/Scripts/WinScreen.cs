@@ -3,16 +3,16 @@
 public class WinScreen : MonoBehaviour
 {
     [SerializeField] private GameObject _winScreen;
-    [SerializeField] private EnemyCounter _counter;
+    [SerializeField] private NpcCounter _counter;
 
     private void OnEnable()
     {
-        _counter.AllTargetsDead += OnAllTargetsDead;
+        _counter.AllNpcDead += OnAllTargetsDead;
     }
 
     private void OnDisable()
     {
-        _counter.AllTargetsDead -= OnAllTargetsDead;
+        _counter.AllNpcDead -= OnAllTargetsDead;
     }
 
     public void OnAllTargetsDead()

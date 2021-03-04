@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class NPCMovement : MonoBehaviour
+public class NpcMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 2;
 

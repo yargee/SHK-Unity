@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(NPCMovement))]
+[RequireComponent(typeof(NpcMovement))]
 public class NPC : MonoBehaviour
 {    
-    [SerializeField] private NPCMovement _mover;
+    [SerializeField] private NpcMovement _mover;
 
-    public event UnityAction<NPC> Killed;
+    public event UnityAction<NPC> NpcKilled;
 
     private void Update()
     {
@@ -15,7 +15,7 @@ public class NPC : MonoBehaviour
 
     public void Die()
     {
-        Killed?.Invoke(this);
+        NpcKilled?.Invoke(this);
         Destroy(gameObject);
     }
 }
