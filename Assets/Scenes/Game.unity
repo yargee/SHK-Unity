@@ -132,8 +132,8 @@ GameObject:
   - component: {fileID: 141422279}
   - component: {fileID: 141422278}
   - component: {fileID: 141422277}
-  - component: {fileID: 141422276}
   - component: {fileID: 141422280}
+  - component: {fileID: 141422276}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemy
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 141422275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7afb271a94b60a745ac24687ff17b754, type: 3}
+  m_Script: {fileID: 11500000, guid: 9217c1b61ddce814ea59d555867aa21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 141422277}
@@ -380,8 +380,6 @@ Transform:
   - {fileID: 1754708964}
   - {fileID: 141422279}
   - {fileID: 1578050040}
-  - {fileID: 1825921602}
-  - {fileID: 312503111}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -396,11 +394,10 @@ GameObject:
   - component: {fileID: 312503111}
   - component: {fileID: 312503116}
   - component: {fileID: 312503115}
-  - component: {fileID: 312503114}
   - component: {fileID: 312503113}
   - component: {fileID: 312503112}
   m_Layer: 0
-  m_Name: Enemy6
+  m_Name: Booster2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,11 +411,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312503110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.44, y: 0.31, z: 4.1601562}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.3138356, y: -2.0906358, z: 2.2849123}
+  m_LocalScale: {x: 0.26464033, y: 0.26464033, z: 0.26464033}
   m_Children: []
-  m_Father: {fileID: 283542362}
-  m_RootOrder: 5
+  m_Father: {fileID: 344047628}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &312503112
 MonoBehaviour:
@@ -432,8 +429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efef13f2d4c3ac840a03025a35febe46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mover: {fileID: 312503115}
   _boostValue: 2
   _boostTime: 4
+  _sprite: {fileID: 312503116}
 --- !u!61 &312503113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -460,19 +459,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &312503114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312503110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7afb271a94b60a745ac24687ff17b754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mover: {fileID: 312503115}
 --- !u!114 &312503115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f7df4705b7dae48944a39b48934484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 3
 --- !u!212 &312503116
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -536,6 +522,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &344047627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 344047628}
+  m_Layer: 0
+  m_Name: Booster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &344047628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344047627}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1701646, y: 3.762636, z: -2.2849123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1825921602}
+  - {fileID: 312503111}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,13 +665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2757496cc3542741bf45e9dbe71d305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemys:
+  _npc:
   - {fileID: 2083640149}
   - {fileID: 1754708961}
   - {fileID: 141422276}
   - {fileID: 1578050037}
-  - {fileID: 1825921605}
-  - {fileID: 312503114}
 --- !u!1 &1054253062
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,8 +762,8 @@ GameObject:
   - component: {fileID: 1578050040}
   - component: {fileID: 1578050039}
   - component: {fileID: 1578050038}
-  - component: {fileID: 1578050037}
   - component: {fileID: 1578050041}
+  - component: {fileID: 1578050037}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Enemy
@@ -764,7 +780,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1578050036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7afb271a94b60a745ac24687ff17b754, type: 3}
+  m_Script: {fileID: 11500000, guid: 9217c1b61ddce814ea59d555867aa21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 1578050038}
@@ -882,8 +898,8 @@ GameObject:
   - component: {fileID: 1754708964}
   - component: {fileID: 1754708963}
   - component: {fileID: 1754708962}
-  - component: {fileID: 1754708961}
   - component: {fileID: 1754708965}
+  - component: {fileID: 1754708961}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -900,7 +916,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1754708960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7afb271a94b60a745ac24687ff17b754, type: 3}
+  m_Script: {fileID: 11500000, guid: 9217c1b61ddce814ea59d555867aa21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 1754708962}
@@ -1022,7 +1038,6 @@ GameObject:
   - component: {fileID: 1761935015}
   - component: {fileID: 1761935014}
   - component: {fileID: 1761935016}
-  - component: {fileID: 1761935017}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1170,22 +1185,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1761935017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761935009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f52eff573ad2e348b770d5d7ba977db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mover: {fileID: 1761935012}
-  _boosters:
-  - {fileID: 1825921603}
-  - {fileID: 312503112}
 --- !u!1 &1825921601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,11 +1196,10 @@ GameObject:
   - component: {fileID: 1825921602}
   - component: {fileID: 1825921607}
   - component: {fileID: 1825921606}
-  - component: {fileID: 1825921605}
   - component: {fileID: 1825921604}
   - component: {fileID: 1825921603}
   m_Layer: 0
-  m_Name: Enemy5
+  m_Name: Booster1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1215,11 +1213,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825921601}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.97, y: 5.11, z: 4.1601562}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.0861645, y: 2.719364, z: 2.2849123}
+  m_LocalScale: {x: 0.2846955, y: 0.2846955, z: 0.2846955}
   m_Children: []
-  m_Father: {fileID: 283542362}
-  m_RootOrder: 4
+  m_Father: {fileID: 344047628}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1825921603
 MonoBehaviour:
@@ -1233,8 +1231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efef13f2d4c3ac840a03025a35febe46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mover: {fileID: 1825921606}
   _boostValue: 1.5
   _boostTime: 5
+  _sprite: {fileID: 1825921607}
 --- !u!61 &1825921604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1261,19 +1261,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1825921605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825921601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7afb271a94b60a745ac24687ff17b754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mover: {fileID: 1825921606}
 --- !u!114 &1825921606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,7 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f7df4705b7dae48944a39b48934484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 3
 --- !u!212 &1825921607
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1348,8 +1335,8 @@ GameObject:
   - component: {fileID: 2083640148}
   - component: {fileID: 2083640147}
   - component: {fileID: 2083640150}
-  - component: {fileID: 2083640149}
   - component: {fileID: 2083640151}
+  - component: {fileID: 2083640149}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -1430,7 +1417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083640146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7afb271a94b60a745ac24687ff17b754, type: 3}
+  m_Script: {fileID: 11500000, guid: 9217c1b61ddce814ea59d555867aa21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 2083640150}

@@ -9,18 +9,17 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out NPC npc))
+        if (collision.TryGetComponent(out Enemy enemy))
         {
-            if (CheckAttackDistance(npc))
+            if (CanAttack(enemy))
             {
-                npc.Die();
+                enemy.Die();
             }
         }
     }
 
-    public bool CheckAttackDistance(NPC npc)
+    public bool CanAttack(Npc npc)
     {
-        var result = Vector3.Distance(transform.position, npc.transform.position) <= _attackDistance ? true : false;
-        return result;
+        return Vector3.Distance(transform.position, npc.transform.position) <= _attackDistance;
     }
 }

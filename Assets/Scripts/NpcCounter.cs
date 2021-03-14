@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class NpcCounter : MonoBehaviour
 {
-    [SerializeField] private List<NPC> _npc;
+    [SerializeField] private List<Npc> _npc;
 
     public event UnityAction AllNpcDead;
 
@@ -14,13 +14,13 @@ public class NpcCounter : MonoBehaviour
     {
         foreach(var enemy in _npc)
         {
-            enemy.NpcKilled += OnNpcKilled;
+            enemy.Killed += OnNpcKilled;
         }
     }
 
-    private void OnNpcKilled(NPC enemy)
+    private void OnNpcKilled(Npc enemy)
     {
-        enemy.NpcKilled -= OnNpcKilled;
+        enemy.Killed -= OnNpcKilled;
         _npc.Remove(enemy);
 
         if(_npc.Count == 0)
